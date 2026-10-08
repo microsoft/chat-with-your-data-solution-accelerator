@@ -39,7 +39,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Install AZD
         run: |
@@ -131,7 +131,7 @@ jobs:
           echo "Generated SOLUTION_SUFFIX: ${UNIQUE_SOLUTION_SUFFIX}"
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3
+        uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3.7.0
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
@@ -152,7 +152,7 @@ jobs:
           fi
 
       - name: Pre-build image and deploy
-        uses: devcontainers/ci@v0.3
+        uses: devcontainers/ci@513af61f4de4f75d37e4438f184ba4358f0fc1ca # v0.3.1900000450
         env:
                       AZURE_ENV_NAME: ${{ env.SOLUTION_SUFFIX }}
                       AZURE_LOCATION: ${{ env.AZURE_LOCATION }}
@@ -311,7 +311,7 @@ jobs:
                 echo "Port: 5432 (hardcoded)"
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
                 python-version: '3.11'
 
@@ -410,10 +410,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Destroy resources
-        uses: devcontainers/ci@v0.3
+        uses: devcontainers/ci@513af61f4de4f75d37e4438f184ba4358f0fc1ca # v0.3.1900000450
         with:
           push: never
           imageName: ghcr.io/azure-samples/chat-with-your-data-solution-accelerator
